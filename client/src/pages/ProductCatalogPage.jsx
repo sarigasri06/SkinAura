@@ -14,7 +14,8 @@ const brands = [
   'Cetaphil', 'CeraVe', 'The Ordinary', 'Minimalist', 'COSRX',
   'Pilgrim', 'Plum', 'Beauty of Joseon', 'The Derma Co', 'Foxtale',
   'Deconstruct', 'Suganda', 'Aqualogica', 'Bioderma', 'Neutrogena',
-  'Simple', 'Faces Canada', 'SKIN1004', 'Some By Mi'
+  'Simple', 'Faces Canada', 'SKIN1004', 'Some By Mi', 'Anua',
+  'Isntree', 'Etude SoonJung', 'Round Lab'
 ];
 
 const ProductCatalogPage = () => {
