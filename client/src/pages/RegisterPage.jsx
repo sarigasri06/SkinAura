@@ -52,13 +52,13 @@ const RegisterPage = () => {
     <div className="min-h-[80vh] flex items-center justify-center px-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-serif font-bold text-gray-900">Create Account</h1>
-          <p className="text-gray-500 mt-2">Join Skin Aura and start your skincare journey</p>
+          <h1 className="text-3xl font-serif font-bold text-rose-900">Create Account</h1>
+          <p className="text-rose-500 mt-2">Join Skin Aura and start your skincare journey</p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm border p-8 space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+            <label className="block text-sm font-medium text-rose-700 mb-1">Full Name</label>
             <input
               type="text"
               value={name}
@@ -69,7 +69,7 @@ const RegisterPage = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <label className="block text-sm font-medium text-rose-700 mb-1">Email</label>
             <input
               type="email"
               value={email}
@@ -80,7 +80,7 @@ const RegisterPage = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <label className="block text-sm font-medium text-rose-700 mb-1">Password</label>
             <input
               type="password"
               value={password}
@@ -91,7 +91,7 @@ const RegisterPage = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+            <label className="block text-sm font-medium text-rose-700 mb-1">Confirm Password</label>
             <input
               type="password"
               value={confirmPassword}
@@ -108,10 +108,10 @@ const RegisterPage = () => {
           {/* Divider */}
           <div className="relative my-4">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-200" />
+              <div className="w-full border-t border-rose-200" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white text-gray-500">or</span>
+              <span className="px-4 bg-white text-rose-500">or</span>
             </div>
           </div>
 
@@ -120,14 +120,14 @@ const RegisterPage = () => {
             type="button"
             onClick={handleGoogleRegister}
             disabled={loading}
-            className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-gray-300 rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors font-medium"
+            className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-rose-300 rounded-lg text-rose-700 bg-white hover:bg-rose-50 transition-colors font-medium"
           >
             <FcGoogle size={22} />
             Continue with Google
           </button>
         </form>
 
-        <p className="text-center text-sm text-gray-500 mt-6">
+        <p className="text-center text-sm text-rose-500 mt-6">
           Already have an account?{' '}
           <Link to="/login" className="text-rose-500 hover:text-rose-600 font-medium">
             Login

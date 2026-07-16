@@ -79,7 +79,7 @@ const AdminDashboardPage = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <h1 className="text-3xl font-serif font-bold text-gray-900 mb-8">Admin Dashboard</h1>
+      <h1 className="text-3xl font-serif font-bold text-rose-900 mb-8">Admin Dashboard</h1>
 
       {/* Tabs */}
       <div className="flex gap-2 mb-8 border-b">
@@ -90,7 +90,7 @@ const AdminDashboardPage = () => {
             className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
               activeTab === tab
                 ? 'border-rose-500 text-rose-500'
-                : 'border-transparent text-gray-500 hover:text-gray-700'
+                : 'border-transparent text-rose-500 hover:text-rose-700'
             }`}
           >
             {tab === 'stats' ? 'Overview' : tab === 'orders' ? 'Orders' : 'Add Product'}
@@ -109,17 +109,17 @@ const AdminDashboardPage = () => {
               { label: 'Products', value: stats.totalProducts },
             ].map((stat, idx) => (
               <div key={idx} className="bg-white rounded-xl p-6 shadow-sm border">
-                <p className="text-sm text-gray-500">{stat.label}</p>
-                <p className="text-2xl font-bold text-gray-900 mt-1">{stat.value}</p>
+                <p className="text-sm text-rose-500">{stat.label}</p>
+                <p className="text-2xl font-bold text-rose-900 mt-1">{stat.value}</p>
               </div>
             ))}
           </div>
 
           {stats.lowStockProducts?.length > 0 && (
             <div className="bg-white rounded-xl p-6 shadow-sm border mb-6">
-              <h3 className="font-semibold text-gray-800 mb-3">⚠️ Low Stock Products</h3>
+              <h3 className="font-semibold text-rose-800 mb-3">⚠️ Low Stock Products</h3>
               {stats.lowStockProducts.map((p) => (
-                <p key={p._id} className="text-sm text-gray-600">
+                <p key={p._id} className="text-sm text-rose-600">
                   {p.name} — <span className="text-rose-500">{p.stock} left</span>
                 </p>
               ))}
@@ -127,7 +127,7 @@ const AdminDashboardPage = () => {
           )}
 
           <div className="bg-white rounded-xl p-6 shadow-sm border">
-            <h3 className="font-semibold text-gray-800 mb-3">Recent Orders</h3>
+            <h3 className="font-semibold text-rose-800 mb-3">Recent Orders</h3>
             {stats.recentOrders?.map((order) => (
               <div key={order._id} className="flex justify-between py-2 border-b text-sm">
                 <span>#{order._id.slice(-8)} — {order.user?.name}</span>
@@ -146,7 +146,7 @@ const AdminDashboardPage = () => {
               <div className="flex justify-between items-center">
                 <div>
                   <p className="font-medium text-sm">#{order._id.slice(-8)} — {order.user?.name}</p>
-                  <p className="text-xs text-gray-400">{new Date(order.createdAt).toLocaleDateString()}</p>
+                  <p className="text-xs text-rose-400">{new Date(order.createdAt).toLocaleDateString()}</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="font-semibold">{formatCurrency(order.totalPrice)}</span>
@@ -171,7 +171,7 @@ const AdminDashboardPage = () => {
         <form onSubmit={handleCreateProduct} className="bg-white rounded-xl p-6 shadow-sm border max-w-2xl">
           <div className="grid grid-cols-2 gap-4">
             <div className="col-span-2">
-              <label className="block text-sm text-gray-600 mb-1">Product Name</label>
+              <label className="block text-sm text-rose-600 mb-1">Product Name</label>
               <input
                 type="text" value={productForm.name} required
                 onChange={(e) => setProductForm({ ...productForm, name: e.target.value })}
@@ -179,7 +179,7 @@ const AdminDashboardPage = () => {
               />
             </div>
             <div className="col-span-2">
-              <label className="block text-sm text-gray-600 mb-1">Description</label>
+              <label className="block text-sm text-rose-600 mb-1">Description</label>
               <textarea
                 value={productForm.description} required rows="3"
                 onChange={(e) => setProductForm({ ...productForm, description: e.target.value })}
@@ -187,7 +187,7 @@ const AdminDashboardPage = () => {
               />
             </div>
             <div>
-              <label className="block text-sm text-gray-600 mb-1">Price (₹)</label>
+              <label className="block text-sm text-rose-600 mb-1">Price (₹)</label>
               <input
                 type="number" value={productForm.price} required min="0"
                 onChange={(e) => setProductForm({ ...productForm, price: e.target.value })}
@@ -195,7 +195,7 @@ const AdminDashboardPage = () => {
               />
             </div>
             <div>
-              <label className="block text-sm text-gray-600 mb-1">Compare At Price</label>
+              <label className="block text-sm text-rose-600 mb-1">Compare At Price</label>
               <input
                 type="number" value={productForm.compareAtPrice} min="0"
                 onChange={(e) => setProductForm({ ...productForm, compareAtPrice: e.target.value })}
@@ -203,7 +203,7 @@ const AdminDashboardPage = () => {
               />
             </div>
             <div>
-              <label className="block text-sm text-gray-600 mb-1">Category</label>
+              <label className="block text-sm text-rose-600 mb-1">Category</label>
               <select
                 value={productForm.category}
                 onChange={(e) => setProductForm({ ...productForm, category: e.target.value })}
@@ -218,7 +218,7 @@ const AdminDashboardPage = () => {
               </select>
             </div>
             <div>
-              <label className="block text-sm text-gray-600 mb-1">Stock</label>
+              <label className="block text-sm text-rose-600 mb-1">Stock</label>
               <input
                 type="number" value={productForm.stock} min="0"
                 onChange={(e) => setProductForm({ ...productForm, stock: e.target.value })}
@@ -226,7 +226,7 @@ const AdminDashboardPage = () => {
               />
             </div>
             <div>
-              <label className="block text-sm text-gray-600 mb-1">Ingredients (comma-separated)</label>
+              <label className="block text-sm text-rose-600 mb-1">Ingredients (comma-separated)</label>
               <input
                 type="text" value={productForm.ingredients}
                 onChange={(e) => setProductForm({ ...productForm, ingredients: e.target.value })}
@@ -234,7 +234,7 @@ const AdminDashboardPage = () => {
               />
             </div>
             <div>
-              <label className="block text-sm text-gray-600 mb-1">Skin Types</label>
+              <label className="block text-sm text-rose-600 mb-1">Skin Types</label>
               <input
                 type="text" value={productForm.skinType}
                 onChange={(e) => setProductForm({ ...productForm, skinType: e.target.value })}

@@ -6,12 +6,18 @@ const cookieParser = require('cookie-parser');
 const connectDB = require('./config/db');
 const { notFound, errorHandler } = require('./utils/errorHandler');
 const seedProducts = require('./utils/seedProducts');
+const seedUsers = require('./utils/seedUsers');
+const seedReviews = require('./utils/seedReviews');
 
 // Load env vars
 dotenv.config();
 
 // Connect to database and seed
-connectDB().then(() => seedProducts());
+connectDB().then(async () => {
+  await seedProducts();
+  await seedUsers();
+  await seedReviews();
+});
 
 const app = express();
 

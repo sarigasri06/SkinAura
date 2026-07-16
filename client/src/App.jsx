@@ -16,6 +16,8 @@ import ProfilePage from './pages/ProfilePage';
 import OrdersPage from './pages/OrdersPage';
 import AdminDashboardPage from './pages/AdminDashboardPage';
 import WishlistPage from './pages/WishlistPage';
+import BeforeAfterPage from './pages/BeforeAfterPage';
+import SkinJournalPage from './pages/SkinJournalPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
           <Route path="products" element={<ProductCatalogPage />} />
           <Route path="categories" element={<CategoryProductsPage />} />
           <Route path="products/:id" element={<ProductDetailPage />} />
+          <Route path="gallery" element={<BeforeAfterPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
@@ -38,6 +41,7 @@ function App() {
             <Route path="profile" element={<ProfilePage />} />
             <Route path="wishlist" element={<WishlistPage />} />
             <Route path="orders" element={<OrdersPage />} />
+            <Route path="journal" element={<SkinJournalPage />} />
           </Route>
 
           {/* Admin Routes */}

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.PROD ? '/api' : '/api',
 });
 
 // Attach token to every request

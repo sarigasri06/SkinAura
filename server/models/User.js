@@ -46,6 +46,19 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: '',
     },
+    loyaltyPoints: {
+      type: Number,
+      default: 0,
+    },
+    loyaltyLevel: {
+      type: String,
+      enum: ['Silver', 'Gold', 'Platinum'],
+      default: 'Silver',
+    },
+    totalSpent: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     timestamps: true,

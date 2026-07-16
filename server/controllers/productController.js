@@ -23,11 +23,6 @@ const getProducts = async (req, res) => {
       query.category = req.query.category;
     }
 
-    // Filter by brand
-    if (req.query.brand) {
-      query.brand = { $in: req.query.brand.split(',') };
-    }
-
     // Filter by skin type
     if (req.query.skinType) {
       query.skinType = { $in: req.query.skinType.split(',') };
@@ -81,6 +76,29 @@ const getProducts = async (req, res) => {
       pages: Math.ceil(count / pageSize),
       total: count,
     });
+  } catch (error) {
+    res.status(500);
+    throw error;
+  }
+};
+
+// @desc    Search suggestions (autocomplete)
+// @route   GET /api/products/suggestions
+// @access  Public
+const getSearchSuggestions = async (req, res) => {
+  try {
+    const { q } = req.query;
+    if (!q || q.length < 2) {
+      return res.json([]);
+    }
+
+    const regex = { $regex: q, $options: 'i' };
+    const products = await Product.find(
+      { $or: [{ name: regex }, { category: regex }, { ingredients: regex }] },
+      'name category images'
+    ).limit(8);
+
+    res.json(products);
   } catch (error) {
     res.status(500);
     throw error;
@@ -273,6 +291,7 @@ module.exports = {
   getFeaturedProducts,
   getProductById,
   getProductsByCategories,
+  getSearchSuggestions,
   createProduct,
   updateProduct,
   deleteProduct,

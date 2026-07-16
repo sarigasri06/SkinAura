@@ -7,17 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Premium Korean Skincare — Cream + Chocolate Brown Palette
+        // Cream #F8F5F0 → Warm Beige #E8D8C4 → Chocolate Brown #6F4E37 → Dark Brown #3E2723
         rose: {
-          50: '#fff1f2',
-          100: '#ffe4e6',
-          200: '#fecdd3',
-          300: '#fda4af',
-          400: '#fb7185',
-          500: '#f43f5e',
-          600: '#e11d48',
-          700: '#be123c',
-          800: '#9f1239',
-          900: '#881337',
+          50:  '#F8F5F0',  // Cream — main background
+          100: '#E8D8C4',  // Warm Beige — cards, sections
+          200: '#D9C3A8',  // Warm Beige border
+          300: '#C4A882',  // Transition
+          400: '#9A7B5A',  // Muted chocolate
+          500: '#6F4E37',  // Chocolate Brown — navbar, buttons, icons, links, accents
+          600: '#5E3F2B',  // Dark chocolate hover
+          700: '#4D3422',  // Semi-dark — labels
+          800: '#3E2723',  // Dark Brown — headings, body text
+          900: '#2E1B18',  // Darkest — footer
+          950: '#1E100E',  // Deepest accent
         },
       },
       fontFamily: {

@@ -33,9 +33,9 @@ const WishlistPage = () => {
   if (!user) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-20 text-center">
-        <FiHeart size={64} className="mx-auto text-gray-300 mb-4" />
-        <h2 className="text-2xl font-semibold text-gray-800 mb-2">Please Login</h2>
-        <p className="text-gray-500 mb-6">Login to view your wishlist.</p>
+        <FiHeart size={64} className="mx-auto text-rose-300 mb-4" />
+        <h2 className="text-2xl font-semibold text-rose-800 mb-2">Please Login</h2>
+        <p className="text-rose-500 mb-6">Login to view your wishlist.</p>
         <Link to="/login" className="btn-primary">Login</Link>
       </div>
     );
@@ -53,8 +53,8 @@ const WishlistPage = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-serif font-bold text-gray-900">My Wishlist</h1>
-          <p className="text-gray-500 mt-1">{products.length} {products.length === 1 ? 'item' : 'items'}</p>
+          <h1 className="text-3xl font-serif font-bold text-rose-900">My Wishlist</h1>
+          <p className="text-rose-500 mt-1">{products.length} {products.length === 1 ? 'item' : 'items'}</p>
         </div>
         {products.length > 0 && (
           <button onClick={handleAddAllToCart} className="btn-primary flex items-center gap-2">
@@ -66,9 +66,9 @@ const WishlistPage = () => {
 
       {products.length === 0 ? (
         <div className="text-center py-20">
-          <FiHeart size={64} className="mx-auto text-gray-300 mb-4" />
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">Your wishlist is empty</h2>
-          <p className="text-gray-500 mb-6">Save your favorite products by clicking the heart icon!</p>
+          <FiHeart size={64} className="mx-auto text-rose-300 mb-4" />
+          <h2 className="text-2xl font-semibold text-rose-800 mb-2">Your wishlist is empty</h2>
+          <p className="text-rose-500 mb-6">Save your favorite products by clicking the heart icon!</p>
           <Link to="/products" className="btn-primary">Browse Products</Link>
         </div>
       ) : (

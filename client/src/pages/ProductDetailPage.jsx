@@ -64,7 +64,7 @@ const ProductDetailPage = () => {
   if (!product) {
     return (
       <div className="text-center py-20">
-        <h2 className="text-2xl font-semibold text-gray-800">Product not found</h2>
+        <h2 className="text-2xl font-semibold text-rose-800">Product not found</h2>
       </div>
     );
   }
@@ -78,7 +78,7 @@ const ProductDetailPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         {/* Images */}
         <div>
-          <div className="bg-gray-100 rounded-2xl overflow-hidden mb-4 h-96 flex items-center justify-center">
+          <div className="bg-rose-100 rounded-2xl overflow-hidden mb-4 h-96 flex items-center justify-center">
             {product.images && product.images.length > 0 ? (
               <img
                 src={product.images[selectedImage]}
@@ -96,7 +96,7 @@ const ProductDetailPage = () => {
                   key={idx}
                   onClick={() => setSelectedImage(idx)}
                   className={`w-20 h-20 rounded-lg overflow-hidden border-2 ${
-                    selectedImage === idx ? 'border-rose-500' : 'border-gray-200'
+                    selectedImage === idx ? 'border-rose-500' : 'border-rose-200'
                   }`}
                 >
                   <img src={img} alt="" className="w-full h-full object-cover" />
@@ -111,7 +111,7 @@ const ProductDetailPage = () => {
           <p className="text-sm text-rose-500 font-medium uppercase tracking-wide mb-2">
             {product.category}
           </p>
-          <h1 className="text-3xl font-serif font-bold text-gray-900 mb-4">{product.name}</h1>
+          <h1 className="text-3xl font-serif font-bold text-rose-900 mb-4">{product.name}</h1>
 
           {/* Rating */}
           <div className="flex items-center gap-2 mb-4">
@@ -120,33 +120,33 @@ const ProductDetailPage = () => {
                 <FiStar
                   key={star}
                   size={18}
-                  className={star <= Math.round(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}
+                  className={star <= Math.round(product.rating) ? 'text-rose-400 fill-current' : 'text-rose-300'}
                 />
               ))}
             </div>
-            <span className="text-gray-500">({product.numReviews} reviews)</span>
+            <span className="text-rose-500">({product.numReviews} reviews)</span>
           </div>
 
           {/* Price */}
           <div className="flex items-baseline gap-3 mb-6">
-            <span className="text-3xl font-bold text-gray-900">{formatCurrency(product.price)}</span>
+            <span className="text-3xl font-bold text-rose-900">{formatCurrency(product.price)}</span>
             {product.compareAtPrice > 0 && (
               <>
-                <span className="text-lg text-gray-400 line-through">{formatCurrency(product.compareAtPrice)}</span>
+                <span className="text-lg text-rose-400 line-through">{formatCurrency(product.compareAtPrice)}</span>
                 <span className="text-sm bg-rose-100 text-rose-600 px-2 py-1 rounded-full font-medium">{discount}% OFF</span>
               </>
             )}
           </div>
 
-          <p className="text-gray-600 mb-6 leading-relaxed">{product.description}</p>
+          <p className="text-rose-600 mb-6 leading-relaxed">{product.description}</p>
 
           {/* Skin Type */}
           {product.skinType && product.skinType.length > 0 && (
             <div className="mb-4">
-              <h4 className="text-sm font-medium text-gray-700 mb-2">Suitable For:</h4>
+              <h4 className="text-sm font-medium text-rose-700 mb-2">Suitable For:</h4>
               <div className="flex flex-wrap gap-2">
                 {product.skinType.map((type) => (
-                  <span key={type} className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600">{type}</span>
+                  <span key={type} className="px-3 py-1 bg-rose-100 rounded-full text-sm text-rose-600">{type}</span>
                 ))}
               </div>
             </div>
@@ -155,10 +155,10 @@ const ProductDetailPage = () => {
           {/* Ingredients */}
           {product.ingredients && product.ingredients.length > 0 && (
             <div className="mb-6">
-              <h4 className="text-sm font-medium text-gray-700 mb-2">Key Ingredients:</h4>
+              <h4 className="text-sm font-medium text-rose-700 mb-2">Key Ingredients:</h4>
               <div className="flex flex-wrap gap-2">
                 {product.ingredients.map((ing) => (
-                  <span key={ing} className="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm">{ing}</span>
+                  <span key={ing} className="px-3 py-1 bg-rose-100 text-rose-700 rounded-full text-sm">{ing}</span>
                 ))}
               </div>
             </div>
@@ -166,17 +166,17 @@ const ProductDetailPage = () => {
 
           {/* Quantity + Add to Cart */}
           <div className="flex items-center gap-4 mb-6">
-            <div className="flex items-center border border-gray-300 rounded-lg">
+            <div className="flex items-center border border-rose-300 rounded-lg">
               <button
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="p-3 hover:bg-gray-100 transition-colors"
+                className="p-3 hover:bg-rose-100 transition-colors"
               >
                 <FiMinus size={16} />
               </button>
               <span className="px-6 font-medium">{quantity}</span>
               <button
                 onClick={() => setQuantity(Math.min(product.stock, quantity + 1))}
-                className="p-3 hover:bg-gray-100 transition-colors"
+                className="p-3 hover:bg-rose-100 transition-colors"
               >
                 <FiPlus size={16} />
               </button>
@@ -201,7 +201,7 @@ const ProductDetailPage = () => {
               className={`p-3 rounded-lg border-2 transition-colors ${
                 isWishlisted
                   ? 'border-rose-500 text-rose-500 bg-rose-50'
-                  : 'border-gray-300 text-gray-400 hover:border-rose-300 hover:text-rose-500'
+                  : 'border-rose-300 text-rose-400 hover:border-rose-300 hover:text-rose-500'
               }`}
               title={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
             >
@@ -210,7 +210,7 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Stock */}
-          <p className={`text-sm ${product.stock > 0 ? 'text-green-600' : 'text-red-500'}`}>
+          <p className={`text-sm ${product.stock > 0 ? 'text-rose-500' : 'text-rose-500'}`}>
             {product.stock > 0 ? `${product.stock} in stock` : 'Currently out of stock'}
           </p>
         </div>
@@ -218,20 +218,20 @@ const ProductDetailPage = () => {
 
       {/* Reviews Section */}
       <div className="border-t pt-12">
-        <h2 className="text-2xl font-serif font-bold text-gray-900 mb-8">Customer Reviews</h2>
+        <h2 className="text-2xl font-serif font-bold text-rose-900 mb-8">Customer Reviews</h2>
 
         {/* Write Review */}
         {user && (
-          <form onSubmit={handleSubmitReview} className="bg-gray-50 rounded-xl p-6 mb-8">
-            <h3 className="font-medium text-gray-800 mb-4">Write a Review</h3>
+          <form onSubmit={handleSubmitReview} className="bg-rose-50 rounded-xl p-6 mb-8">
+            <h3 className="font-medium text-rose-800 mb-4">Write a Review</h3>
             <div className="mb-4">
-              <label className="block text-sm text-gray-600 mb-2">Rating</label>
+              <label className="block text-sm text-rose-600 mb-2">Rating</label>
               <div className="flex gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button key={star} type="button" onClick={() => setRating(star)}>
                     <FiStar
                       size={24}
-                      className={star <= rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}
+                      className={star <= rating ? 'text-rose-400 fill-current' : 'text-rose-300'}
                     />
                   </button>
                 ))}
@@ -261,24 +261,24 @@ const ProductDetailPage = () => {
             {product.reviews.map((review) => (
               <div key={review._id} className="border-b pb-4">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="font-medium text-gray-800">{review.name}</span>
+                  <span className="font-medium text-rose-800">{review.name}</span>
                   <div className="flex">
                     {[1, 2, 3, 4, 5].map((s) => (
                       <FiStar
                         key={s}
                         size={14}
-                        className={s <= review.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}
+                        className={s <= review.rating ? 'text-rose-400 fill-current' : 'text-rose-300'}
                       />
                     ))}
                   </div>
                 </div>
-                {review.title && <p className="font-medium text-gray-700 text-sm mb-1">{review.title}</p>}
-                {review.comment && <p className="text-gray-500 text-sm">{review.comment}</p>}
+                {review.title && <p className="font-medium text-rose-700 text-sm mb-1">{review.title}</p>}
+                {review.comment && <p className="text-rose-500 text-sm">{review.comment}</p>}
               </div>
             ))}
           </div>
         ) : (
-          <p className="text-gray-400">No reviews yet. Be the first to review!</p>
+          <p className="text-rose-400">No reviews yet. Be the first to review!</p>
         )}
       </div>
     </div>

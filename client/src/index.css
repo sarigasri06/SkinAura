@@ -4,46 +4,58 @@
 
 @layer base {
   body {
-    @apply bg-white text-gray-800 font-sans;
+    @apply bg-rose-50 text-rose-800 font-sans;
   }
 
   h1, h2, h3, h4 {
-    @apply font-serif;
+    @apply font-serif text-rose-800;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 @layer components {
   .btn-primary {
     @apply bg-rose-500 text-white px-6 py-3 rounded-lg font-medium
-           hover:bg-rose-600 transition-colors duration-200
+           hover:bg-rose-600 transition-all duration-300 shadow-sm hover:shadow-md
            disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
   .btn-outline {
     @apply border-2 border-rose-500 text-rose-500 px-6 py-3 rounded-lg font-medium
-           hover:bg-rose-500 hover:text-white transition-colors duration-200;
+           hover:bg-rose-500 hover:text-white transition-all duration-300;
   }
 
   .btn-secondary {
-    @apply bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-medium
-           hover:bg-gray-200 transition-colors duration-200;
+    @apply bg-rose-100 text-rose-700 px-6 py-3 rounded-lg font-medium
+           hover:bg-rose-200 transition-all duration-300;
   }
 
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg
+    @apply w-full px-4 py-3 border border-rose-200 rounded-lg bg-white
            focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent
            transition-all duration-200;
   }
 
   .card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden
-           hover:shadow-lg transition-shadow duration-300;
+    @apply bg-white rounded-xl shadow-sm overflow-hidden border border-rose-100
+           hover:shadow-md hover:border-rose-200 transition-all duration-300;
+  }
+
+  .section-divider {
+    @apply border-t border-rose-100;
+  }
+
+  .section-beige {
+    @apply bg-rose-100;
   }
 }
 
 @layer utilities {
   .animate-fadeIn {
-    animation: fadeIn 0.2s ease-out;
+    animation: fadeIn 0.3s ease-out;
   }
 
   @keyframes fadeIn {
@@ -55,5 +67,22 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F8F5F0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #C4A882;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6F4E37;
   }
 }

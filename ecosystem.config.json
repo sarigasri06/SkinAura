@@ -1,0 +1,32 @@
+{
+  "apps": [
+    {
+      "name": "sariga-backend",
+      "cwd": "/opt/sariga-app/server",
+      "script": "server.js",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 8044,
+        "MONGO_URI": "mongodb://localhost:27017/sariga-db",
+        "CLIENT_URL": "http://localhost:5044",
+        "JWT_SECRET": "sariga_jwt_secret_production_2026"
+      },
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "max_memory_restart": "512M",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    {
+      "name": "sariga-frontend",
+      "cwd": "/opt/sariga-app/client",
+      "script": "node_modules/.bin/vite",
+      "args": "preview --port 5044 --host 0.0.0.0",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "max_memory_restart": "512M",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss"
+    }
+  ]
+}

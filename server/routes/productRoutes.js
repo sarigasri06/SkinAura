@@ -5,6 +5,7 @@ const {
   getFeaturedProducts,
   getProductById,
   getProductsByCategories,
+  getSearchSuggestions,
   createProduct,
   updateProduct,
   deleteProduct,
@@ -15,6 +16,7 @@ const { admin } = require('../middleware/adminMiddleware');
 
 router.get('/featured', getFeaturedProducts);
 router.get('/by-categories', getProductsByCategories);
+router.get('/suggestions', getSearchSuggestions);
 router.get('/', getProducts);
 router.get('/:id', getProductById);
 router.post('/', protect, admin, createProduct);
