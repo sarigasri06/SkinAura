@@ -17,7 +17,7 @@ A full-stack skincare e-commerce website built using the MERN Stack.
 - Notifications
 
 ## Tech Stack
-- Frontend: python
+- Frontend: react.js
 - Backend: Node.js, Express.js
 - Database: MongoDB
 - Styling: CSS
